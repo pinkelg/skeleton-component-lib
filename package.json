@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/pinkelg/skeleton-component-lib/issues"
   },
-  "homepage": "https://github.com/pinkelg/skeleton-component-lib#readme"
+  "homepage": "https://github.com/pinkelg/skeleton-component-lib#readme",
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "react": "^18.2.0"
+  }
 }
