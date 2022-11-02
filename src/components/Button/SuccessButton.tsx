@@ -1,8 +1,8 @@
-import React from "react";
-import Button ,{ButtonProps} from './Button'
+import React, { ReactElement } from "react";
+import Button, { ButtonProps } from "./Button";
 
-const SuccessButton = (props: ButtonProps) => {
-    return <Button {...props} label={"success"}/>
+const SuccessButton = (props: ButtonProps): ReactElement<HTMLButtonElement> => {
+  return <Button {...props} label={"success"} />;
 };
 
 export default SuccessButton;
