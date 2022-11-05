@@ -1,7 +1,10 @@
 {
-  "name": "skeleton-component-lib",
+  "name": "@pgurung/skeleton-component-lib",
   "version": "1.0.0",
   "description": "",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/pinkelg"
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
