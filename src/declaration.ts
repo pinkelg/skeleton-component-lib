@@ -34,6 +34,7 @@ declare module "*.webp" {
 }
 
 declare module "*.svg" {
+  // @ts-expect-error
   import * as React from "react";
 
   export const ReactComponent: React.FunctionComponent<React.SVGProps<SVGSVGElement> & { title?: string }>;
