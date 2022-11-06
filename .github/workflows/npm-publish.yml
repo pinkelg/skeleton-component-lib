@@ -22,7 +22,7 @@ jobs:
 
   publish-npm:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/workflow' }}
+    if: github.ref == 'refs/heads/workflow'
     needs: quality
     steps:
       - uses: actions/checkout@v3
