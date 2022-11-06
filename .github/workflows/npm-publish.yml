@@ -5,9 +5,7 @@ name: Node.js Package
 
 on:
   push:
-    branches: ["master"]
-  pull_request:
-    branches: ["master"]
+    branches: '*'
 jobs:
   quality:
     if: ${{ github.ref == 'refs/heads/workflow' }}
