@@ -31,7 +31,7 @@ jobs:
           node-version: 18
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm version patch && git add . && git commit -m "bump version" && git push
+      - run: npm version patch && git add . && git commit -m "bump version" && git push origin workflow
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_ACCESS_TOKEN}}
