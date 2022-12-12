@@ -1,10 +1,16 @@
 {
   "name": "skeleton-component-lib",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Skeleton app for creating react component library using storybook and rollup",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rimraf dist && NODE_ENV=production BABEL_ENV=production rollup -c"
   },
   "repository": {
     "type": "git",
@@ -12,15 +18,37 @@
   },
   "keywords": [],
   "author": "Pinkel Gurung",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pinkelg/skeleton-component-lib/issues"
   },
   "homepage": "https://github.com/pinkelg/skeleton-component-lib#readme",
   "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
+    "@babel/runtime": "^7.20.6",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^23.0.4",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@rollup/plugin-url": "^8.0.1",
+    "@svgr/rollup": "^6.5.1",
     "@types/node": "^18.11.13",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "postcss": "^8.4.20",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.79.1",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "tslib": "^2.4.1",
     "typescript": "^4.9.4"
   },
   "peerDependencies": {
