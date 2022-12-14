@@ -1,0 +1,11 @@
+.git
+.npmrc
+.yarnrc
+build
+dist
+node_modules
+coverage
+storybook-static
+.eslintrc.js
+prettier.config.js
+rollup.config.mjs

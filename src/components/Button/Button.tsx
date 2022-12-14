@@ -8,19 +8,8 @@ export interface IButtonProps {
   children?: ReactNode;
 }
 
-export const Button: FC<IButtonProps> = ({
-  onClick,
-  disabled,
-  className,
-  children,
-}) => (
-  <button
-    type="button"
-    className={cx("button", className)}
-    onClick={onClick}
-    disabled={disabled}
-    data-testid="Button-Button"
-  >
+export const Button: FC<IButtonProps> = ({ onClick, disabled, className, children }) => (
+  <button type="button" className={cx("button", className)} onClick={onClick} disabled={disabled} data-testid="Button-Button">
     {children}
   </button>
 );
