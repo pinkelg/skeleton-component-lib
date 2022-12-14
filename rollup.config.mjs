@@ -19,50 +19,43 @@ const config = [
         file: pkg.main,
         format: "cjs",
         exports: "named",
-        sourcemap: true,
+        sourcemap: true
       },
       {
         file: pkg.module,
         format: "esm",
         exports: "named",
-        sourcemap: true,
-      },
+        sourcemap: true
+      }
     ],
     plugins: [
       postcss({
         plugins: [],
-        minimize: true,
+        minimize: true
       }),
       external({
-        includeDependencies: true,
+        includeDependencies: true
       }),
       typescript({
         tsconfig: "./tsconfig.json",
         typescript: typescriptEngine,
         include: ["*.js+(|x)", "**/*.js+(|x)"],
-        exclude: [
-          "coverage",
-          "config",
-          "dist",
-          "node_modules/**",
-          "*.test.{js+(|x), ts+(|x)}",
-          "**/*.test.{js+(|x), ts+(|x)}",
-        ],
+        exclude: ["coverage", "config", "dist", "node_modules/**", "*.test.{js+(|x), ts+(|x)}", "**/*.test.{js+(|x), ts+(|x)}"]
       }),
       commonjs(),
       babel({
         extensions: [...DEFAULT_EXTENSIONS, ".ts", "tsx"],
         babelHelpers: "runtime",
-        exclude: /node_modules/,
+        exclude: /node_modules/
       }),
       url(),
       svgr(),
       resolve(),
-      terser(),
+      terser()
     ],
     watch: {
-      clearScreen: false,
-    },
-  },
+      clearScreen: false
+    }
+  }
 ];
 export default config;

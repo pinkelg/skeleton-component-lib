@@ -13,9 +13,9 @@ const envPreset = isDevelopment
         exclude: ["transform-typeof-symbol"],
         loose: true,
         targets: {
-          node: "current",
-        },
-      },
+          node: "current"
+        }
+      }
     ];
 
 module.exports = {
@@ -23,17 +23,17 @@ module.exports = {
     [
       "@babel/preset-react",
       {
-        development: isDevelopment,
-      },
+        development: isDevelopment
+      }
     ],
     [
       "@babel/preset-typescript",
       {
         isTSX: true,
-        allExtensions: true,
-      },
+        allExtensions: true
+      }
     ],
-    envPreset,
+    envPreset
   ],
   plugins: [
     ["@babel/plugin-proposal-class-properties", { loose: true }],
@@ -44,9 +44,9 @@ module.exports = {
         corejs: false,
         helpers: !isDevelopment,
         regenerator: !isDevelopment,
-        useESModules: !isDevelopment,
-      },
-    ],
+        useESModules: !isDevelopment
+      }
+    ]
   ],
   env: {
     production: {
@@ -54,10 +54,10 @@ module.exports = {
         [
           "babel-plugin-transform-react-remove-prop-types",
           {
-            removeImport: true,
-          },
-        ],
-      ],
-    },
-  },
+            removeImport: true
+          }
+        ]
+      ]
+    }
+  }
 };
