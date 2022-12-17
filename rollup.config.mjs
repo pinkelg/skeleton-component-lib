@@ -7,11 +7,11 @@ import postcss from "rollup-plugin-postcss";
 import resolve from "@rollup/plugin-node-resolve";
 import url from "@rollup/plugin-url";
 import svgr from "@svgr/rollup";
-import { terser } from "rollup-plugin-terser";
+import dts from "rollup-plugin-dts";
 import typescriptEngine from "typescript";
 import pkg from "./package.json" assert { type: "json" };
 
-const config = [
+export default [
   {
     input: "./src/index.ts",
     output: [
@@ -38,8 +38,7 @@ const config = [
       }),
       typescript({
         tsconfig: "./tsconfig.json",
-        typescript: typescriptEngine,
-        include: ["*.js+(|x)", "**/*.js+(|x)"],
+        include: ["*.js+(|x)", "**/*.ts+(|x)"],
         exclude: ["coverage", "config", "dist", "node_modules/**", "*.test.{js+(|x), ts+(|x)}", "**/*.test.{js+(|x), ts+(|x)}"]
       }),
       commonjs(),
@@ -50,12 +49,15 @@ const config = [
       }),
       url(),
       svgr(),
-      resolve(),
-      terser()
+      resolve()
     ],
     watch: {
       clearScreen: false
     }
+  },
+  {
+    input: "dist/types/index.d.ts",
+    output: [{ file: "dist/index.d.ts", format: "esm" }],
+    plugins: [dts()]
   }
 ];
-export default config;
