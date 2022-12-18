@@ -34,6 +34,6 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      # - run: npm ci
+      - run: npm ci
       # - run: npm run build-storybook
       - run: npx gh-pages -d storybook-static
