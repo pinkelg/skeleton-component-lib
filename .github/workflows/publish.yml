@@ -24,7 +24,7 @@ jobs:
   quality:
     strategy:
       matrix:
-        node-version: [16.x, 18.x]
+        node-version: [18.x]
     environment:
     runs-on: ubuntu-latest
     steps:
@@ -65,7 +65,7 @@ jobs:
           patch-wording: "patch,fixes"
           rc-wording: "RELEASE,alpha"
         env:
-          GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_WORKFLOW_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_LIB_GITHUB_ACTIONS_TOKEN }}
       - name: Build
         run: npm run build
       - name: Publish
