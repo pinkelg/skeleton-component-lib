@@ -5,7 +5,7 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
-    if: ${{ github.ref == 'refs/heads/master' }}
+    # if: ${{ github.ref == 'refs/heads/master' }}
     # needs: quality
     steps:
       - uses: actions/checkout@v3
@@ -24,7 +24,6 @@ jobs:
       - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_ACCESS_TOKEN}}
-          GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_WORKFLOW_GITHUB_TOKEN }}
   publish-storybook:
     runs-on: ubuntu-latest
     # if: ${{ github.ref == 'refs/heads/master' }}
@@ -38,5 +37,3 @@ jobs:
       - run: npm ci
       - run: npm run build-storybook
       - run: npx gh-pages -d storybook-static"
-        env:
-          GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_WORKFLOW_GITHUB_TOKEN }}
