@@ -39,6 +39,37 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm run test
+  publish:
+    needs: quality
+    strategy:
+      matrix:
+        node-version: [18.x]
+    environment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+          registry-url: https://registry.npmjs.org/
+      - name: Install Dependencies
+        run: npm ci
+      - name: Bump Version
+        uses: "phips28/gh-action-bump-version@master"
+        with:
+        minor-wording: "add,Adds,new"
+        major-wording: "MAJOR,cut-major"
+        patch-wording: "patch,fixes"
+        rc-wording: "RELEASE,alpha"
+      - name: Build
+        run: npm run build
+      - name: Publish
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPMJS_ACCESS_TOKEN}}
   deploy:
     needs: quality
     strategy:
