@@ -3,16 +3,16 @@ on:
   push:
     branches: "*"
 jobs:
-  quality:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-          cache: "npm"
-      - run: npm ci
-      - run: npm test
+  # quality:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 18
+  #         cache: "npm"
+  #     - run: npm ci
+  #     - run: npm test
   publish-npm:
     runs-on: ubuntu-latest
     if: ${{ github.ref == 'refs/heads/master' }}
@@ -38,7 +38,7 @@ jobs:
   publish-storybook:
     runs-on: ubuntu-latest
     # if: ${{ github.ref == 'refs/heads/master' }}
-    needs: quality
+    # needs: quality
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
@@ -47,7 +47,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build-storybook
-      - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/pinkelg/skeleton-component-lib.git
-      - run: npx gh-pages -d storybook-static -u "Pinkel Gurung <pinkelgurung@gmail.com>"
+      - run: npx gh-pages -d storybook-static"
         env:
           GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_WORKFLOW_GITHUB_TOKEN }}
