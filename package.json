@@ -1,6 +1,6 @@
 {
   "name": "skeleton-component-lib",
-  "version": "1.0.0",
+  "version": "1.0.15",
   "description": "Skeleton app for creating react component library using storybook and rollup",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -18,7 +18,7 @@
     "prepare": "husky install",
     "storybook": "rimraf storybook-static && start-storybook -p 6006",
     "build-storybook": "rimraf storybook-static && build-storybook",
-    "predeploy": "yarn build-storybook",
+    "predeploy": "npm build-storybook",
     "deploy": "gh-pages -d storybook-static"
   },
   "lint-staged": {
