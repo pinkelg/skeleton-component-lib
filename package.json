@@ -19,7 +19,7 @@
     "storybook": "rimraf storybook-static && start-storybook -p 6006",
     "build-storybook": "rimraf storybook-static && build-storybook",
     "predeploy": "yarn build-storybook",
-    "deploy": "gh-pages -d storybook-static"
+    "deploy": "gh-pages -d storybook-static  -- -u 'Pinkel Gurung <pinkelgurung@gmail.com>'"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": "eslint --cache --fix",
