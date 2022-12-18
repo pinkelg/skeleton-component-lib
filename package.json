@@ -1,6 +1,6 @@
 {
   "name": "skeleton-component-lib",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "Skeleton app for creating react component library using storybook and rollup",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
