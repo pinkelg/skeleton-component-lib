@@ -5,7 +5,7 @@ on:
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
-    # if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     # needs: quality
     steps:
       - uses: actions/checkout@v3
@@ -36,4 +36,4 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: npm run build-storybook
-      - run: npx gh-pages -d storybook-static"
+      - run: npx gh-pages -d storybook-static
