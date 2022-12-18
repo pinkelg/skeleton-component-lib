@@ -38,9 +38,6 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_ACCESS_TOKEN}}
   publish-storybook:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     # if: ${{ github.ref == 'refs/heads/master' }}
     # needs: quality
