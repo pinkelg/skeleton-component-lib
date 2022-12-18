@@ -38,7 +38,6 @@ jobs:
       # - run: npm run build-storybook
       - run: git config --global user.email pinkelgurung@gmail.com
       - run: git config --global user.name pinkelg
-      - run: git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/pinkelg/skeleton-component-lib.git
       - run: npx gh-pages -d storybook-static
         env:
           GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_LIB_GITHUB_ACTIONS_TOKEN }}
