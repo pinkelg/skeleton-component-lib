@@ -9,12 +9,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 # Allow one concurrent deployment
 concurrency:
   group: "pages"
@@ -40,6 +34,8 @@ jobs:
       - name: Run tests
         run: npm run test
   publish:
+    permissions:
+      contents: write
     needs: quality
     strategy:
       matrix:
@@ -74,6 +70,10 @@ jobs:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_ACCESS_TOKEN}}
           GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_WORKFLOW_GITHUB_TOKEN }}
   deploy:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     needs: quality
     strategy:
       matrix:
