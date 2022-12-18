@@ -45,7 +45,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: build
-        run: npm run build-storybook
+        run: npx gh-pages -d storybook-static
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
