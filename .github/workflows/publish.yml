@@ -34,7 +34,7 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      - run: npm ci
+      # - run: npm ci
       # - run: npm run build-storybook
       - run: git config --global user.email pinkelgurung@gmail.com
       - run: git config --global user.name pinkelg
