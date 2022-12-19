@@ -1,12 +1,17 @@
-import React, { FC } from "react";
-import { Meta } from "@storybook/react";
-import { Button, IButtonProps } from "./Button";
+import React from "react";
+import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { Button } from "./Button";
 
 export default {
-  title: "Button",
+  title: "Components/Button",
   component: Button
-} as Meta<IButtonProps>;
+} as ComponentMeta<typeof Button>;
 
-export const Default: FC = () => {
-  return <Button onClick={() => console.log("click")}>hello world</Button>;
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const Default = Template.bind({});
+
+Default.args = {
+  children: "Login",
+  onClick: () => console.log("OK")
 };

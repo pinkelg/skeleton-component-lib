@@ -23,7 +23,17 @@ module.exports = {
     }
   ],
   webpackFinal: (config) => {
-    return { ...config, resolve: { ...config.resolve, ...custom.resolve }, module: { ...config.module, rules: custom.module.rules } };
+    return {
+      ...config,
+      resolve: {
+        ...config.resolve,
+        ...custom.resolve
+      },
+      module: {
+        ...config.module,
+        rules: custom.module.rules
+      }
+    };
   },
   "framework": "@storybook/react",
   "core": {
