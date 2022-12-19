@@ -39,7 +39,7 @@ export default [
       typescript({
         tsconfig: "./tsconfig.json",
         include: ["*.js+(|x)", "**/*.ts+(|x)"],
-        exclude: ["coverage", "config", "dist", "node_modules/**", "*.test.{js+(|x), ts+(|x)}", "**/*.test.{js+(|x), ts+(|x)}"]
+        exclude: ["coverage", "config", "dist", "node_modules/**", "**/*.test.jsx", "**/*.test.tsx", "**/*.stories.tsx"]
       }),
       commonjs(),
       babel({
