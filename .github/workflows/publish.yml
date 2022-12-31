@@ -56,15 +56,12 @@ jobs:
           major-wording: "MAJOR,cut-major"
           patch-wording: "patch,fixes"
           rc-wording: "RELEASE,alpha"
-        env:
-          GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_LIB_GITHUB_ACTIONS_TOKEN }}
       - name: Build
         run: npm run build
       - name: Publish
         run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPMJS_ACCESS_TOKEN}}
-          GITHUB_TOKEN: ${{ secrets.SKELETON_COMPONENT_WORKFLOW_GITHUB_TOKEN }}
   deploy:
     permissions:
       contents: read
